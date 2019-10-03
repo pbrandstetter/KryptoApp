@@ -1,3 +1,5 @@
+[![CodeFactor](https://www.codefactor.io/repository/github/pbrandstetter/kryptoapp/badge)](https://www.codefactor.io/repository/github/pbrandstetter/kryptoapp)
+
 # KryptoApp
 This is an app for a school project.
 
