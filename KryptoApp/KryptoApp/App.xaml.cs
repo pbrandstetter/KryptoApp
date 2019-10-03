@@ -8,7 +8,6 @@ namespace KryptoApp
 {
     public partial class App : Application
     {
-
         public App()
         {
             InitializeComponent();
