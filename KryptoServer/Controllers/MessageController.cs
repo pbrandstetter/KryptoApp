@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using KryptoApp.Model;
+using KryptoServer.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,6 +12,10 @@ namespace KryptoServer.Controllers
     [ApiController]
     public class MessageController : ControllerBase
     {
+
+        public MessageController(DataStorage dataStorage)
+        {
+        }
 
         [HttpGet]
         [Route("/api/message/new")]

@@ -11,5 +11,6 @@ namespace KryptoApp.Model
         public User Receiver { get; set; }
 
         public string Text { get; set; }
+        public bool isNew { get; set; }
     }
 }

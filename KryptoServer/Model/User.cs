@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace KryptoApp.Model
 {
@@ -15,7 +16,5 @@ namespace KryptoApp.Model
         public string PublicKey { get; set; }
 
         public string PrivateKey { get; set; }
-
-        public bool IsLoggedIn { get; set; }
     }
 }
