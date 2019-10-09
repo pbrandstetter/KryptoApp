@@ -1,9 +1,21 @@
-﻿namespace KryptoApp.Model
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace KryptoApp.Model
 {
     public class User
     {
-        public string username { get; set; }
+        public int Id { get; set; }
 
-        public string password { get; set; }
+        [Required]
+        public string Username { get; set; }
+
+        [Required]
+        public string Password { get; set; }
+
+        public string PublicKey { get; set; }
+
+        public string PrivateKey { get; set; }
+
+        public bool IsLoggedIn { get; set; }
     }
 }

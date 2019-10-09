@@ -6,10 +6,10 @@ namespace KryptoApp.Model
     {
         public DateTime Date { get; set; }
 
-        public User sender { get; set; }
+        public User Sender { get; set; }
 
-        public User receiver { get; set; }
+        public User Receiver { get; set; }
 
-        public string text { get; set; }
+        public string Text { get; set; }
     }
 }
