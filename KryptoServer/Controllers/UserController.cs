@@ -27,14 +27,28 @@ namespace KryptoApp.Controllers
         public IActionResult login([FromBody] User user)
         {
 
-            return Ok();
+            IEnumerable<User> users = dataStorage.Users.Where(user1 => user1.Username == user.Username);
+            if (users.Count() != 0)
+            {
+                SHA512 sHA512 = SHA512.Create(user.Password);
+                user.Password = Encoding.ASCII.GetString(sHA512.Hash);
+                if (user.Password == users.First().Password)
+                {
+                    return Ok(users.First().Password);
+                }
+                return BadRequest("Incorrect password");
+            }
+            return NotFound("User not found.");
         }
 
         [HttpPost]
         [Route("/api/user/register")]
         public IActionResult register([FromBody] User user)
         {
-            user.Id = dataStorage.Users.Count();
+            if (dataStorage.Users.Where(user1 => user1.Username == user.Username).Count() != 0)
+            {
+                return BadRequest("Username not available.");
+            }
             SHA512 sHA512 = SHA512.Create(user.Password);
             user.Password = Encoding.ASCII.GetString(sHA512.Hash);
             var (publicKey, publicPrivateKey) = GenerateKeyPair();
@@ -48,14 +62,14 @@ namespace KryptoApp.Controllers
         [Route("/api/user/")]
         public IActionResult getAllUsers()
         {
-            return Ok(dataStorage.Users.Select(s => (id: s.Id, username: s.Username)));
+            return Ok(dataStorage.Users.Select(s => s.Username));
         }
 
         [HttpGet]
         [Route("/api/user/{username}")]
         public IActionResult getUser([FromRoute] string username)
         {
-            return Ok(dataStorage.Users.Where(user => user.Id == id).Select(user => (id: user.Id, username: user.Username)));
+            return Ok(dataStorage.Users.Where(user => user.Username == username).Select(user => user.Username));
         }
 
         static (RSAParameters publicKey, RSAParameters publicPrivateKey) GenerateKeyPair()
