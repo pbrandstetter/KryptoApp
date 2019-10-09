@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using KryptoApp.Model;
-using KryptoServer.Services;
+using KryptoApp.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace KryptoServer.Controllers
+namespace KryptoApp.Controllers
 {
     [ApiController]
     public class UserController : ControllerBase
