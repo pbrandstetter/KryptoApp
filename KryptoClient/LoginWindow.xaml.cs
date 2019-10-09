@@ -10,7 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace KryptoClient
+namespace KryptoApp
 {
     /// <summary>
     /// Interaction logic for LoginWindow.xaml
@@ -25,6 +25,11 @@ namespace KryptoClient
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        {
+            Model.User user = new Model.User();
         }
     }
 }
