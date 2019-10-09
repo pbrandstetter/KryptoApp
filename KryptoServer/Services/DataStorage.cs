@@ -6,15 +6,17 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace KryptoServer.Services
+namespace KryptoApp.Services
 {
     public class DataStorage
     {
         public DataStorage()
         {
-            this.users = new IEnumerable.Empty();
+            this.Users = Enumerable.Empty<User>();
+            this.Messages = Enumerable.Empty<Message>();
         }
 
-        readonly IEnumerable<User> users { get; set; }
+        public IEnumerable<User> Users { get; }
+        public IEnumerable<Message> Messages { get; }
     }
 }
