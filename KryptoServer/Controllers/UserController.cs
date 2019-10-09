@@ -11,7 +11,6 @@ namespace KryptoServer.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-
         [HttpGet]
         [Route("/api/user/login")]
         public IActionResult login()
