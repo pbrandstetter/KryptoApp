@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace KryptoApp.Model
 {
@@ -10,6 +11,7 @@ namespace KryptoApp.Model
 
         public User Receiver { get; set; }
 
+        [Required]
         public string Text { get; set; }
 
         public byte[] EncryptedKey { get; set; }
