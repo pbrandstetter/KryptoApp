@@ -19,21 +19,21 @@ namespace KryptoApp.Controllers
 
         [HttpGet]
         [Route("/api/message/new")]
-        public IActionResult newMessages([FromQuery] int userId)
+        public IActionResult newMessages([FromQuery] string username)
         {
             return Ok();
         }
 
         [HttpGet]
         [Route("/api/message/")]
-        public IActionResult getAllMessages([FromQuery] int userId)
+        public IActionResult getAllMessages([FromQuery] string username)
         {
             return Ok();
         }
 
         [HttpPost]
         [Route("/api/message/send")]
-        public IActionResult sendMessage([FromBody] Message message, [FromQuery] int sendId, [FromQuery] int receiveId)
+        public IActionResult sendMessage([FromBody] Message message, [FromQuery] string sendUsername, [FromQuery] string receiveUsername)
         {
             return Ok();
         }

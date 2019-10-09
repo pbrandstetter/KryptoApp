@@ -13,8 +13,10 @@ namespace KryptoApp.Services
         public DataStorage()
         {
             this.Users = Enumerable.Empty<User>();
+            this.Messages = Enumerable.Empty<Message>();
         }
 
-        private IEnumerable<User> Users { get; }
+        public IEnumerable<User> Users { get; }
+        public IEnumerable<Message> Messages { get; }
     }
 }
