@@ -17,6 +17,7 @@ namespace KryptoApp
     /// </summary>
     public partial class LoginWindow : Window
     {
+        WebClient.WebClient webClient = new WebClient.WebClient();
         public LoginWindow()
         {
             InitializeComponent();
@@ -30,6 +31,9 @@ namespace KryptoApp
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
             Model.User user = new Model.User();
+            user.Username = UsernameInput.Text;
+            user.Password = UsernameInput.Text;
+            webClient.
         }
     }
 }
