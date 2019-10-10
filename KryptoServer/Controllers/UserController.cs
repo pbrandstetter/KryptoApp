@@ -82,42 +82,5 @@ namespace KryptoApp.Controllers
                     publicPrivateKey: rsa.ExportParameters(true));
             }
         }
-
-        static async Task<(byte[] encryptedKey, byte[] encryptedIV, byte[] ciphertext)> GetEncryptedData(RSAParameters publicKey, string text)
-        {
-            byte[] ciphertext;
-            byte[] key;
-            byte[] iv;
-
-            // Use AES to encrypt secret message.
-            using (var aes = new AesCng())
-            {
-                key = aes.Key;
-                iv = aes.IV;
-                using (var msEncrypt = new MemoryStream())
-                {
-                    using (var csEncrypt = new CryptoStream(msEncrypt, aes.CreateEncryptor(), CryptoStreamMode.Write))
-                    using (var swEncrypt = new StreamWriter(csEncrypt))
-                    {
-                        await swEncrypt.WriteAsync("Secret Message");
-                    }
-
-                    ciphertext = msEncrypt.ToArray();
-                }
-            }
-
-            // Use RSA to encrypt AES key/IV
-            using (var rsa = new RSACng())
-            {
-                // Import given public key to RSA
-                rsa.ImportParameters(publicKey);
-
-                // Encrypt symmetric key/IV using RSA (public key).
-                // Return encrypted key/IV and ciphertext
-                return (encryptedKey: rsa.Encrypt(key, RSAEncryptionPadding.OaepSHA512),
-                    encryptedIV: rsa.Encrypt(iv, RSAEncryptionPadding.OaepSHA512),
-                    ciphertext);
-            }
-        }
     }
 }
