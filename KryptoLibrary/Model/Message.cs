@@ -1,6 +1,6 @@
 using System;
 
-namespace KryptoApp.Model
+namespace KrypoLibrary.Model
 {
     public class Message
     {

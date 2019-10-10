@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KrypoLibrary.Model;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -10,14 +11,13 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace KryptoApp
+namespace KryptoClient
 {
     /// <summary>
     /// Interaction logic for LoginWindow.xaml
     /// </summary>
     public partial class LoginWindow : Window
     {
-        WebClient.WebClient webClient = new WebClient.WebClient();
         public LoginWindow()
         {
             InitializeComponent();
@@ -30,10 +30,14 @@ namespace KryptoApp
 
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
-            Model.User user = new Model.User();
+            User user = new User();
             user.Username = UsernameInput.Text;
             user.Password = UsernameInput.Text;
-            webClient.
+            var register = WebClient.WebClient.RegisterAsync(user);
+            var newForm = new Chat(); //create your new form.
+            newForm.Show(); //show the new form.
+            this.Close();
+
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using KryptoApp.Model;
+﻿using KrypoLibrary.Model;
 using System;
 using System.Collections;
 using System.Collections.Generic;

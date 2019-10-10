@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography;
 
-namespace KryptoApp.Model
+namespace KrypoLibrary.Model
 {
     public class User
     {

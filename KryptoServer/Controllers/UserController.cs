@@ -5,7 +5,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using KryptoApp.Model;
+using KrypoLibrary.Model;
 using KryptoApp.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -59,7 +59,7 @@ namespace KryptoApp.Controllers
         }
 
         [HttpGet]
-        [Route("/api/user/")]
+        [Route("/api/user")]
         public IActionResult getAllUsers()
         {
             return Ok(dataStorage.Users.Select(s => s.Username));
