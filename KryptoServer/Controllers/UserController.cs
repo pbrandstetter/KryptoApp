@@ -34,7 +34,7 @@ namespace KryptoApp.Controllers
                 user.Password = Encoding.ASCII.GetString(sHA512.Hash);
                 if (user.Password == users.First().Password)
                 {
-                    return Ok(users.First().Password);
+                    return Ok(users.First());
                 }
                 return BadRequest("Incorrect password");
             }
@@ -49,12 +49,13 @@ namespace KryptoApp.Controllers
             {
                 return BadRequest("Username not available.");
             }
-            SHA512 sHA512 = SHA512.Create(user.Password);
-            user.Password = Encoding.ASCII.GetString(sHA512.Hash);
+            SHA512 sHA512 = SHA512.Create();
+           
+            user.Password = Encoding.ASCII.GetString(sHA512.ComputeHash(Encoding.ASCII.GetBytes(user.Password)));
             var (publicKey, publicPrivateKey) = GenerateKeyPair();
             user.PublicKey = publicKey;
             user.PrivateKey = publicPrivateKey;
-            ((List<User>)dataStorage.Users).Add(user);
+            dataStorage.Users.ToList().Add(user);
             return Ok(user);
         }
 

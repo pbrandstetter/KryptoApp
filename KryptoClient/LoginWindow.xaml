@@ -15,6 +15,5 @@
         <Label Content="Do we meet the first time?" HorizontalAlignment="Left" Margin="82,227,0,0" VerticalAlignment="Top"/>
         <Button x:Name="RegisterButton" Content="Register" HorizontalAlignment="Left" Margin="211,258,0,0" VerticalAlignment="Top" Width="76" Background="#FFDDDDDD" FontWeight="Normal" Click="RegisterButton_Click"/>
         <Label x:Name="test" Content="Label" HorizontalAlignment="Left" Margin="167,345,0,0" VerticalAlignment="Top"/>
-
     </Grid>
 </Window>

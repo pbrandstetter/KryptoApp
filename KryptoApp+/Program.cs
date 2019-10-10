@@ -1,18 +1,23 @@
 ﻿using KrypoLibrary.Model;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KryptoClient.WebClient
+namespace KryptoApp_
 {
-    public class WebClient
+    class Program
     {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+            User user = new User();
+            user.Username = "hasa";
+            user.Password = "cjkxa";
+            RegisterAsync(user);
+        }
 
         static HttpClient client = new HttpClient();
 
@@ -21,8 +26,12 @@ namespace KryptoClient.WebClient
             HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(user), Encoding.UTF8);
             httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-            HttpResponseMessage resp = await client.PostAsync("api/user/register", httpContent);
+            Console.WriteLine("error");
+            HttpResponseMessage resp = await client.PostAsync("localhost:5000/api/user/register/", httpContent);
             Console.WriteLine(resp);
+            Console.WriteLine(resp.IsSuccessStatusCode);
+            Console.WriteLine(resp.Content);
+            Console.WriteLine(resp.StatusCode);
             return resp.Content;
         }
         public static async Task<Uri> LoginAsync(User user)
@@ -35,21 +44,21 @@ namespace KryptoClient.WebClient
         }
         public static async Task<string> GetAllUserAsync()
         {
-            
+
             HttpResponseMessage response = await client.GetAsync("http://localhost:5000/api/user");
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
             return responseBody;
         }
 
-    /*    public static async void SendMassage(Message message, string sendUsername, string receiveUsername)
-        {
-            HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(message,sendUsername,receiveUsername), Encoding.UTF8);
-            httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+        /*    public static async void SendMassage(Message message, string sendUsername, string receiveUsername)
+            {
+                HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(message,sendUsername,receiveUsername), Encoding.UTF8);
+                httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-            HttpResponseMessage resp = await client.PostAsync("api/user/login", httpContent);
-            return resp.Headers.Location;
-        }*/
+                HttpResponseMessage resp = await client.PostAsync("api/user/login", httpContent);
+                return resp.Headers.Location;
+            }*/
 
     }
 }

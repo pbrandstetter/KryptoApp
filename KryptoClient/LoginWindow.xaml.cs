@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -30,13 +31,18 @@ namespace KryptoClient
 
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
-            User user = new User();
-            user.Username = UsernameInput.Text;
-            user.Password = UsernameInput.Text;
-            var register = WebClient.WebClient.RegisterAsync(user);
-            var newForm = new Chat(); //create your new form.
-            newForm.Show(); //show the new form.
-            this.Close();
+            Console.WriteLine("a");
+            Task.Run(async () =>
+            {
+                User user = new User();
+                user.Username = UsernameInput.Text;
+                user.Password = PasswordInput.Password;
+                Console.WriteLine("asdf");
+                var register = await WebClient.WebClient.RegisterAsync(user);
+                var newForm = new Chat(); //create your new form.
+                newForm.Show(); //show the new form.
+                this.Close();
+            });
 
         }
     }

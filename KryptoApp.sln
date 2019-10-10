@@ -5,9 +5,11 @@ VisualStudioVersion = 16.0.29319.158
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KryptoServer", "KryptoServer\KryptoServer.csproj", "{7C815F10-1736-4968-AAD6-79C5E97F8F0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KryptoClient", "KryptoClient\KryptoClient.csproj", "{991CBD5F-C5EF-4DBC-AF46-05F301C2B9DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KryptoClient", "KryptoClient\KryptoClient.csproj", "{991CBD5F-C5EF-4DBC-AF46-05F301C2B9DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KryptoLibrary", "KryptoLibrary\KryptoLibrary.csproj", "{E6F75A18-5781-4EE5-8014-819FBFD58587}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KryptoLibrary", "KryptoLibrary\KryptoLibrary.csproj", "{E6F75A18-5781-4EE5-8014-819FBFD58587}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KryptoApp", "KryptoApp+\KryptoApp.csproj", "{67737F01-8010-464A-ADA6-7CCDC7118E01}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +57,18 @@ Global
 		{E6F75A18-5781-4EE5-8014-819FBFD58587}.Release|iPhone.Build.0 = Release|Any CPU
 		{E6F75A18-5781-4EE5-8014-819FBFD58587}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{E6F75A18-5781-4EE5-8014-819FBFD58587}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{67737F01-8010-464A-ADA6-7CCDC7118E01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67737F01-8010-464A-ADA6-7CCDC7118E01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67737F01-8010-464A-ADA6-7CCDC7118E01}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{67737F01-8010-464A-ADA6-7CCDC7118E01}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{67737F01-8010-464A-ADA6-7CCDC7118E01}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{67737F01-8010-464A-ADA6-7CCDC7118E01}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{67737F01-8010-464A-ADA6-7CCDC7118E01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67737F01-8010-464A-ADA6-7CCDC7118E01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67737F01-8010-464A-ADA6-7CCDC7118E01}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{67737F01-8010-464A-ADA6-7CCDC7118E01}.Release|iPhone.Build.0 = Release|Any CPU
+		{67737F01-8010-464A-ADA6-7CCDC7118E01}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{67737F01-8010-464A-ADA6-7CCDC7118E01}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
